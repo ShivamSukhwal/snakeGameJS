@@ -10,19 +10,26 @@ button {
   margin: 0 auto;
 }
 .grid {
+  display: flex;
+  flex-wrap: wrap;
   width: 50vh;
   height: 50vh;
   border: black solid 2px;
   margin: 0 auto;
 }
 
-.grid div {
-  width: 20px;
-  height: 20px;
+.square {
+  width: 5vh;
+  height: 5vh;
+  background-color: blue;
 }
 
 h1,
 h2,
 .grid {
   text-align: center;
+}
+
+.snake {
+  background-color: rgb(33, 218, 33);
 }
