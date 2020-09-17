@@ -33,3 +33,7 @@ h2,
 .snake {
   background-color: rgb(33, 218, 33);
 }
+
+.apple {
+  background-color: rgb(236, 1, 1);
+}
