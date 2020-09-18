@@ -9,6 +9,7 @@ let appleIndex = 0;
 let scoreTally = 0;
 let startTime = 1000;
 let speed = 0.9;
+let timerId = 0;
 function createGrid() {
   for (let i = 0; i < width * width; i++) {
     const square = document.createElement("div");
@@ -22,7 +23,17 @@ createGrid();
 currentSnake.forEach((index) => squares[index].classList.add("snake"));
 
 function startGame() {
-  let timerId = setInterval(move, startTime);
+  currentSnake.forEach((index) => squares[index].classList.remove("snake"));
+  squares[appleIndex].classList.remove("apple");
+  clearInterval(timerId);
+  currentSnake = [2, 1, 0];
+  scoreTally = 0;
+  score.textContent = scoreTally;
+  direction = 1;
+  startTime = 1000;
+  makeApples();
+  currentSnake.forEach((index) => squares[index].classList.add("snake"));
+  timerId = setInterval(move, startTime);
 }
 
 function move() {
@@ -49,7 +60,7 @@ function move() {
     score.textContent = scoreTally;
     startTime = startTime * speed;
     clearInterval(timerId);
-    timerId = setInterval(move, intervalTime);
+    timerId = setInterval(move, startTime);
   }
 }
 
